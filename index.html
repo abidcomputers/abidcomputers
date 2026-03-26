@@ -3,72 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abid Computers | 26+ Premium Services</title>
+    <title>Abid Computers | 26+ Professional Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg: #030712; --card: #111827; --accent: #3b82f6; --gold: #f59e0b; --text: #f9fafb; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 15px; }
-        
-        .header { text-align: center; padding: 30px 10px; background: linear-gradient(180deg, #1e3a8a 0%, var(--bg) 100%); border-radius: 20px; margin-bottom: 20px; border-bottom: 3px solid var(--accent); }
-        .header h1 { margin: 0; font-size: 26px; letter-spacing: 2px; }
-        .header p { color: #9ca3af; font-size: 14px; margin-top: 5px; }
-
-        .services-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 600px; margin: auto; }
-        
-        .service-item { background: var(--card); border: 1px solid #1f2937; border-radius: 15px; padding: 20px 10px; text-align: center; cursor: pointer; transition: 0.3s; position: relative; }
-        .service-item:hover { border-color: var(--accent); background: #1f2937; transform: translateY(-3px); }
-        .service-item i { font-size: 24px; color: var(--accent); margin-bottom: 10px; display: block; }
-        .service-item span { font-size: 13px; font-weight: 600; }
-
-        .details-box { display: none; grid-column: span 2; background: #1e293b; padding: 20px; border-radius: 15px; border: 1px solid var(--accent); margin: 5px 0; text-align: center; animation: slideIn 0.3s ease-out; }
-        .details-box.active { display: block; }
-        
-        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .wa-link { background: #25d366; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .pdf-link { background: #ef4444; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-
-        .footer { text-align: center; margin-top: 40px; padding: 20px; background: var(--card); border-radius: 15px; font-size: 13px; color: #9ca3af; border-top: 2px solid #374151; }
-        .footer strong { color: var(--accent); }
-
-        @keyframes slideIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        :root { --main: #1e3a8a; --bg: #0f172a; --card: #ffffff; --text: #1e293b; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 15px; color: var(--text); }
+        .container { max-width: 500px; margin: auto; background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .header { background: var(--main); color: white; text-align: center; padding: 25px 10px; border-bottom: 5px solid #fbbf24; }
+        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; }
+        .item { border: 1.5px solid #e2e8f0; padding: 15px 5px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.2s; background: #f8fafc; }
+        .item:hover { border-color: var(--main); background: #eff6ff; transform: translateY(-2px); }
+        .item i { font-size: 20px; color: var(--main); margin-bottom: 8px; display: block; }
+        .item span { font-size: 13px; font-weight: 700; }
+        .details { display: none; grid-column: span 2; background: #fffbeb; padding: 20px; border-radius: 12px; border: 1px solid #fde68a; margin: 5px 0; text-align: center; animation: fadeIn 0.3s; }
+        .details.active { display: block; }
+        .wa-btn { background: #25d366; color: white; padding: 12px; border-radius: 8px; text-decoration: none; display: block; font-weight: bold; margin-top: 10px; }
+        .pdf-btn { background: #dc2626; color: white; padding: 12px; border-radius: 8px; text-decoration: none; display: block; font-weight: bold; margin-bottom: 8px; }
+        .footer { background: #f1f5f9; padding: 20px; text-align: center; font-size: 13px; border-top: 1px solid #e2e8f0; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>ABID COMPUTERS</h1>
-    <p>Expert IT & Digital Solutions | Mamu Kanjan</p>
+<div class="container">
+    <div class="header">
+        <h1>26+ SERVICES</h1>
+        <div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">Abid Computers | Trusted IT Partner</div>
+    </div>
+
+    <div class="grid">
+        <div class="item" onclick="toggle('s1')"><i class="fas fa-search"></i><span>Lost ID</span></div>
+        <div class="item" onclick="toggle('s2')"><i class="fas fa-users"></i><span>FRC Online</span></div>
+        <div id="s1" class="details">ID Card gum honay par report aur naya banwanay mein madad.<a href="https://wa.me/923324952550" class="wa-btn">WhatsApp Details</a></div>
+        <div id="s2" class="details">Family Registration Certificate Online Application.<a href="https://wa.me/923324952550" class="wa-btn">Apply Now</a></div>
+
+        <div class="item" onclick="toggle('s3')"><i class="fas fa-envelope-open-text"></i><span>Shadi Card</span></div>
+        <div class="item" onclick="toggle('s4')"><i class="fas fa-tools"></i><span>Hardware</span></div>
+        <div id="s3" class="details">
+            Naye Shadi Card designs ke liye catalog dekhein.
+            <a href="shadi-cards/shadi-cards.pdf" target="_blank" class="pdf-btn">VIEW PDF CATALOG</a>
+            <a href="https://wa.me/923324952550" class="wa-btn">Order on WhatsApp</a>
+        </div>
+        <div id="s4" class="details">Laptop/PC Repairing and Hardware Upgrades.<a href="https://wa.me/923324952550" class="wa-btn">Chat Now</a></div>
+
+        <div class="item" onclick="toggle('s5')"><i class="fas fa-magic"></i><span>AI Photo</span></div>
+        <div class="item" onclick="toggle('s6')"><i class="fas fa-graduation-cap"></i><span>IT Diploma</span></div>
+        <div id="s5" class="details">Professional AI Photo Editing Services.<a href="https://wa.me/923324952550" class="wa-btn">Send Photo</a></div>
+        <div id="s6" class="details">Registered IT and Computer Courses.<a href="https://wa.me/923324952550" class="wa-btn">Details</a></div>
+
+        <div class="item" onclick="toggle('s7')"><i class="fas fa-bolt"></i><span>Bill Pay</span></div>
+        <div class="item" onclick="toggle('s8')"><i class="fas fa-car"></i><span>Vehicle Info</span></div>
+        <div id="s7" class="details">Bijli, Gas, Pani ke bills ki online adaigi.<a href="https://wa.me/923324952550" class="wa-btn">Pay Bill</a></div>
+        <div id="s8" class="details">Vehicle Registration and Verification Check.<a href="https://wa.me/923324952550" class="wa-btn">Check Info</a></div>
+
+        <div class="item" onclick="toggle('s9')"><i class="fas fa-file-alt"></i><span>CV Maker</span></div>
+        <div class="item" onclick="toggle('s10')"><i class="fas fa-passport"></i><span>Passport</span></div>
+        <div id="s9" class="details">Professional CV and Resume Designing.<a href="https://wa.me/923324952550" class="wa-btn">Make CV</a></div>
+        <div id="s10" class="details">Passport Fee and Online Appointment.<a href="https://wa.me/923324952550" class="wa-btn">WhatsApp</a></div>
+
+        <div class="item" onclick="toggle('s11')"><i class="fas fa-home"></i><span>Domicile</span></div>
+        <div class="item" onclick="toggle('s12')"><i class="fas fa-sim-card"></i><span>SIM Detail</span></div>
+        <div id="s11" class="details">New Domicile Application Services.<a href="https://wa.me/923324952550" class="wa-btn">Apply</a></div>
+        <div id="s12" class="details">SIM Ownership and Detail Check.<a href="https://wa.me/923324952550" class="wa-btn">Verify</a></div>
+    </div>
+
+    <div class="footer">
+        <strong>Abid Computers</strong><br>
+        Opposite National Bank Mamu Kanjan<br>
+        0332 4952550
+    </div>
 </div>
 
-<div class="services-container">
-    <div class="service-item" onclick="show('s1')"><i class="fas fa-search"></i><span>Lost ID</span></div>
-    <div class="service-item" onclick="show('s2')"><i class="fas fa-users"></i><span>FRC Online</span></div>
-    <div id="s1" class="details-box">ID Card/Documents gum honay ki surat mein rabta karein.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div></div>
-    <div id="s2" class="details-box">Family Registration Certificate (FRC) online apply.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div></div>
+<script>
+    function toggle(id) {
+        let details = document.querySelectorAll('.details');
+        let target = document.getElementById(id);
+        let wasActive = target.classList.contains('active');
+        details.forEach(d => d.classList.remove('active'));
+        if (!wasActive) target.classList.add('active');
+    }
+</script>
 
-    <div class="service-item" onclick="show('s3')"><i class="fas fa-envelope-open-text"></i><span>Shadi Card</span></div>
-    <div class="service-item" onclick="show('s4')"><i class="fas fa-tools"></i><span>Hardware</span></div>
-    <div id="s3" class="details-box">Wedding & Invitation Card Designing/Printing.<div class="btn-group"><a href="shadi-cards/shadi-cards.pdf" target="_blank" class="pdf-link"><i class="fas fa-file-pdf"></i> VIEW PDF CATALOG</a><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Order Now</a></div></div>
-    <div id="s4" class="details-box">Laptop & PC Motherboard Repairing, SSD/RAM Upgrades.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div></div>
-
-    <div class="service-item" onclick="show('s5')"><i class="fas fa-wand-magic-sparkles"></i><span>AI Photo</span></div>
-    <div class="service-item" onclick="show('s6')"><i class="fas fa-user-graduate"></i><span>IT Diploma</span></div>
-    <div id="s5" class="details-box">AI Powered Photo Editing and Upscaling.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Send Photo</a></div></div>
-    <div id="s6" class="details-box">Registered Computer Courses and Diplomas.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Inquiry</a></div></div>
-
-    <div class="service-item" onclick="show('s7')"><i class="fas fa-bolt"></i><span>Bill Pay</span></div>
-    <div class="service-item" onclick="show('s8')"><i class="fas fa-car"></i><span>Vehicle Info</span></div>
-    <div id="s7" class="details-box">Utility Bills Online Payment Service.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Send Bill</a></div></div>
-    <div id="s8" class="details-box">Car/Bike Registration and Verification Online.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Check Now</a></div></div>
-
-    <div class="service-item" onclick="show('s9')"><i class="fas fa-file-pdf"></i><span>CV Maker</span></div>
-    <div class="service-item" onclick="show('s10')"><i class="fas fa-passport"></i><span>Passport</span></div>
-    <div id="s9" class="details-box">Professional CV and Resume Designing.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Start CV</a></div></div>
-    <div id="s10" class="details-box">Passport Online Fee & Appointment Services.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Book Now</a></div></div>
-
-    <div class="service-item" onclick="show('s11')"><i class="fas fa-house-user"></i><span>Domicile</span></div>
-    <div class="service-item" onclick="show('s12')"><i class="fas fa-sim-card"></i><span>SIM Detail</span></div>
-    <div id="s11" class="details-box">New Domicile and Character Certificate.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Apply Now</a></div></div>
-    <div id="s12" class="details-box">SIM Ownership and CNIC Information.<div class="btn-group"><a href="https://wa.me/923324952550" class="wa-link"><i class="fab fa-whatsapp"></i> Verify Now</a></div></div>
-
-    <div class="service-item" onclick="show('s13')"><i class="fas fa-plane
+</body>
+</html>
