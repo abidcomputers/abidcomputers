@@ -6,92 +6,66 @@
     <title>Abid Computers | 50+ Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --neon: #00f2ff; --bg: #020617; --card: #1e293b; }
-        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        :root { --neon: #00f2ff; --bg: #020617; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: white; }
         
-        /* --- ELEGANT BRANDED HEADER --- */
+        /* --- ELEGANT NEON HEADER --- */
         .header { 
-            height: 60vh;
+            padding: 80px 20px;
             background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; border-bottom: 2px solid var(--neon);
         }
-
         .brand-name {
-            font-size: clamp(3rem, 10vw, 5.5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #fff;
-            letter-spacing: 8px;
-            margin: 0;
-            text-shadow: 0 0 15px var(--neon), 0 0 30px rgba(0,242,255,0.3);
-            animation: pulse 3s infinite ease-in-out;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900; text-transform: uppercase; letter-spacing: 10px;
+            margin: 0; text-shadow: 0 0 20px var(--neon); line-height: 1.1;
         }
-
         .tagline {
-            font-size: 1.1rem;
-            color: var(--neon);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            font-weight: 300;
-            opacity: 0.8;
+            color: var(--neon); letter-spacing: 5px; font-size: 0.9rem;
+            margin-top: 15px; text-transform: uppercase; font-weight: 300;
         }
 
-        /* --- GRID SYSTEM --- */
-        .container { padding: 40px 20px; max-width: 1300px; margin: auto; }
+        /* --- STABLE GRID --- */
+        .container { padding: 40px 15px; max-width: 1200px; margin: auto; }
         .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); 
-            gap: 12px; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+            gap: 15px; 
         }
-
         .card { 
-            background: rgba(30, 41, 59, 0.6); 
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.05); 
-            padding: 20px 5px; border-radius: 12px; 
-            text-align: center; cursor: pointer; transition: 0.3s;
+            background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 10px; border-radius: 12px; text-align: center; cursor: pointer;
+            transition: 0.3s;
         }
-        .card:hover { 
-            border-color: var(--neon); transform: translateY(-5px);
-            background: rgba(0, 242, 255, 0.1);
-        }
+        .card:hover { border-color: var(--neon); transform: translateY(-5px); }
         .card i { font-size: 24px; color: var(--neon); margin-bottom: 10px; display: block; }
-        .card span { font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .card span { font-size: 11px; font-weight: 600; text-transform: uppercase; }
 
-        /* --- DETAIL POPUP --- */
+        /* --- POPUP --- */
         .details { 
             display: none; grid-column: 1 / -1; background: #0f172a; 
-            border: 1.5px solid var(--neon); padding: 25px; border-radius: 15px; 
-            text-align: center; margin: 10px 0; animation: fadeIn 0.4s;
+            border: 1px solid var(--neon); padding: 25px; border-radius: 15px; 
+            text-align: center; margin: 10px 0;
         }
         .details.active { display: block; }
         .wa-btn { 
-            background: #25d366; color: white; padding: 10px 30px; 
+            background: #25d366; color: white; padding: 10px 25px; 
             border-radius: 50px; text-decoration: none; display: inline-block; 
-            margin-top: 15px; font-weight: bold; 
+            margin-top: 15px; font-weight: bold; font-size: 13px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.03); opacity: 0.8; }
-        }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .footer { text-align: center; padding: 50px; opacity: 0.5; border-top: 1px solid #1e293b; }
+        .footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1 class="brand-name">ABID</h1>
-    <h1 class="brand-name" style="font-size: clamp(2rem, 6vw, 3.5rem); margin-top: -10px;">COMPUTERS</h1>
+    <div class="brand-name">ABID</div>
+    <div class="brand-name" style="font-size: 0.6em; letter-spacing: 5px;">COMPUTERS</div>
     <p class="tagline">50+ Premium Digital Services</p>
 </div>
 
 <div class="container">
-    <div class="grid" id="serviceGrid">
+    <div class="grid" id="mainGrid">
         </div>
 </div>
 
@@ -100,51 +74,40 @@
 </div>
 
 <script>
-    const services = [
-        { n: "Lost ID Card", i: "fa-id-card", d: "Online reporting and new ID card application." },
-        { n: "FRC Online", i: "fa-users", d: "NADRA Family Registration Certificate." },
-        { n: "Shadi Card", i: "fa-heart", d: "Custom Wedding Card Designing & Printing." },
-        { n: "PC Repair", i: "fa-microchip", d: "Complete Hardware & Software Troubleshooting." },
-        { n: "Bill Payment", i: "fa-bolt", d: "Electricity, Gas, and Water Bill payments." },
-        { n: "Vehicle Info", i: "fa-car", d: "Online Verification & Token Tax Check." },
-        { n: "CV Maker", i: "fa-file-pdf", d: "Professional Resume for Jobs & Visas." },
-        { n: "Passport Fee", i: "fa-passport", d: "Passport Fee submission & Appointment." },
-        { n: "Domicile", i: "fa-file-signature", d: "Punjab Domicile Online Apply." },
-        { n: "SIM Detail", i: "fa-sim-card", d: "SIM Information & Ownership Check." },
-        { n: "IT Diploma", i: "fa-graduation-cap", d: "Short Courses & IT Certificates." },
-        { n: "AI Photo", i: "fa-camera", d: "Professional AI Image Editing & Upscaling." },
-        { n: "Nikah Nama", i: "fa-file-contract", d: "Computerized NADRA Nikah Nama." },
-        { n: "FBR Filing", i: "fa-building-columns", d: "Tax Returns & NTN Registration." },
-        { n: "Character Cert", i: "fa-user-shield", d: "Police Character Certificate apply." },
-        { n: "SSD Upgrade", i: "fa-database", d: "Laptops & PC Speed Optimization." },
-        { n: "Windows Inst.", i: "fa-window-restore", d: "Genuine Windows 10/11 Installation." },
-        { n: "Color Prints", i: "fa-print", d: "High Quality Document & Photo Printing." },
-        { n: "CCTV Setup", i: "fa-video", d: "Security Camera Installation & Repair." },
-        { n: "Web Design", i: "fa-code", d: "Business Websites & Landing Pages." },
-        { n: "Logo Design", i: "fa-pen-nib", d: "Professional Branding & Logos." },
-        { n: "Social Ads", i: "fa-bullhorn", d: "Facebook & Instagram Marketing." },
-        { n: "Income Cert", i: "fa-money-bill-wave", d: "Authorized Income Certificate." },
-        { n: "Birth Cert", i: "fa-child", d: "Computerized Birth Certificates." },
-        { n: "Death Cert", i: "fa-skull", d: "Official Death Registration Services." },
-        { n: "Marriage Cert", i: "fa-rings-wedding", d: "Marriage Registration Certificate." },
-        { n: "Visa Apply", i: "fa-plane", d: "E-Visa & Online Visa Applications." },
-        { n: "University App", i: "fa-school", d: "Admissions & Form Submission." },
-        { n: "BISP Check", i: "fa-hand-holding-heart", d: "Benazir Income Support Program Info." },
-        { n: "E-Sahulat", i: "fa-wallet", d: "NADRA E-Sahulat Transactions." },
-        { n: "Lesco Bill", i: "fa-lightbulb", d: "Electricity Bill Issue Resolution." },
-        { n: "Gass Bill", i: "fa-fire", d: "SNGPL New Connection & Bills." },
-        { n: "Data Recovery", i: "fa-trash-arrow-up", d: "Deleted File & HDD Recovery." },
-        { n: "Graphic Design", i: "fa-palette", d: "Posters, Banners & Flex Design." },
-        { n: "Business Card", i: "fa-address-card", d: "Premium Visiting Card Designs." },
-        { n: "E-Commerce", i: "fa-cart-shopping", d: "Online Store Setup (Shopify/Woo)." },
-        { n: "Translation", i: "fa-language", d: "English to Urdu Document Translation." },
-        { n: "Typing Service", i: "fa-keyboard", d: "Urdu & English Speed Typing." },
-        { n: "Result Check", i: "fa-book-open", d: "All Boards Exam Result Online." },
-        { n: "Roll No Slip", i: "fa-file-lines", d: "Download Exam Roll Number Slips." },
-        { n: "Challan Pay", i: "fa-receipt", d: "Traffic & Govt Challan Payments." },
-        { n: "Driving License", i: "fa-id-badge", d: "Learner & Permanent License Apply." },
-        { n: "Pension Info", i: "fa-person-cane", d: "Govt Pension Registration & Check." },
-        { n: "Zakat Form", i: "fa-mosque", d: "Zakat Affidavit & Form CZ-08." },
-        { n: "Stamp Paper", i: "fa-stamp", d: "E-Stamp Paper & Agreement Services." },
-        { n: "Affidavit", i: "fa-gavel", d: "Legal Affidavit & Bayan-e-Halfi." },
-        { n: "Scholarship",
+    const data = [
+        ["Lost ID Card","fa-id-card","Online application for lost identity cards."],
+        ["FRC Online","fa-users","Family Registration Certificate online apply."],
+        ["Shadi Card","fa-heart","High quality wedding card designing."],
+        ["PC Repair","fa-microchip","Hardware and software maintenance."],
+        ["Bill Payment","fa-bolt","Utility bill payments (Electricity/Gas/Water)."],
+        ["Vehicle Info","fa-car","Online vehicle verification and tax."],
+        ["CV Maker","fa-file-pdf","Professional resumes for local and abroad jobs."],
+        ["Passport Fee","fa-passport","Online passport fee and appointment."],
+        ["Domicile","fa-file-signature","New domicile application and renewal."],
+        ["SIM Detail","fa-sim-card","SIM ownership and active number details."],
+        ["IT Diploma","fa-graduation-cap","Professional IT certifications."],
+        ["AI Photo","fa-camera","AI-powered image enhancement and portraits."],
+        ["Nikah Nama","fa-file-contract","Computerized NADRA Nikah Nama."],
+        ["FBR Filing","fa-building-columns","Tax returns and NTN registration."],
+        ["Police Cert","fa-user-shield","Character certificate applications."],
+        ["SSD Upgrade","fa-database","Hard drive to SSD high-speed upgrade."],
+        ["Windows","fa-window-restore","Original Windows installation."],
+        ["Color Prints","fa-print","HD document and photo prints."],
+        ["CCTV Setup","fa-video","CCTV camera installation and repair."],
+        ["Web Design","fa-code","Business and portfolio website building."],
+        ["Logo Design","fa-pen-nib","Professional brand logo creation."],
+        ["Social Ads","fa-bullhorn","Ads for Facebook, Instagram, and TikTok."],
+        ["Income Cert","fa-money-bill-wave","Official income verification docs."],
+        ["Birth Cert","fa-child","NADRA computerized birth certificates."],
+        ["Death Cert","fa-skull","Official death registration docs."],
+        ["Visa Apply","fa-plane","E-visa processing and consultancy."],
+        ["Uni Admission","fa-school","Online forms for all universities."],
+        ["BISP Info","fa-hand-holding-heart","Benazir Income Support status check."],
+        ["E-Sahulat","fa-wallet","NADRA E-Sahulat payment services."],
+        ["Lesco Issues","fa-lightbulb","Electricity bill correction and issues."],
+        ["SNGPL Docs","fa-fire","Gas connection and bill services."],
+        ["Data Recovery","fa-trash-arrow-up","Deleted data and HDD recovery."],
+        ["Graphic Design","fa-palette","Flyers, flex, and banner designing."],
+        ["Business Card","fa-address-card","Premium visiting cards."],
+        ["E-Commerce","fa-cart-shopping","Shopify and Online store setup."],
+        ["Translation","fa
