@@ -6,14 +6,14 @@
     <title>Abid Computers | Mamu Kanjan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --neon: #00f2ff; --bg: #030712; --card-bg: rgba(17, 24, 39, 0.9); }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; scroll-behavior: smooth; }
+        :root { --neon: #00f2ff; --bg: #030712; --card-bg: rgba(17, 24, 39, 0.95); }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; overflow-x: hidden; }
         
-        /* Hero Section with Integrated Coding Background */
+        /* Hero Section */
         .hero {
-            height: 70vh;
-            background: linear-gradient(to bottom, rgba(3,7,18,0.2), var(--bg)), 
-                        url('https://images2.imgbox.com/39/5f/fNImXQ3V_o.jpg'); /* Direct Link to your coding pic */
+            height: 50vh;
+            background: linear-gradient(to bottom, rgba(3,7,18,0.4), var(--bg)), 
+                        url('https://images2.imgbox.com/39/5f/fNImXQ3V_o.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -21,68 +21,67 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 3px solid var(--neon);
+            border-bottom: 2px solid var(--neon);
         }
-        .hero h1 { font-size: 2.8rem; margin: 0; text-shadow: 0 0 20px var(--neon); letter-spacing: 3px; }
-        .hero p { color: var(--neon); font-weight: bold; margin-top: 10px; font-size: 1.1rem; }
 
-        .container { padding: 20px; max-width: 600px; margin: auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .container { padding: 15px; max-width: 500px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         
         .card { 
             background: var(--card-bg); 
             border: 1px solid #1f2937; 
-            padding: 20px 10px; 
-            border-radius: 15px; 
+            padding: 15px 5px; 
+            border-radius: 12px; 
             text-align: center; 
             cursor: pointer;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.2s;
         }
-        .card:hover { border-color: var(--neon); transform: scale(1.05); box-shadow: 0 0 20px rgba(0,242,255,0.3); }
-        .card i { font-size: 28px; color: var(--neon); margin-bottom: 10px; display: block; }
-        .card span { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+        .card:hover { border-color: var(--neon); transform: translateY(-2px); }
+        .card i { font-size: 22px; color: var(--neon); margin-bottom: 8px; display: block; }
+        .card span { font-size: 13px; font-weight: 600; }
 
-        .details { display: none; grid-column: span 2; background: #111827; border: 2px solid var(--neon); padding: 20px; border-radius: 15px; margin: 10px 0; animation: slideIn 0.4s; text-align: center; }
+        .details { display: none; grid-column: span 2; background: #111827; border: 1.5px solid var(--neon); padding: 15px; border-radius: 12px; margin: 5px 0; text-align: center; }
         .details.active { display: block; }
         
-        .btn-wa { background: #25d366; color: white; padding: 12px; border-radius: 8px; text-decoration: none; display: block; margin-top: 15px; font-weight: bold; }
-        .btn-pdf { background: #ef4444; color: white; padding: 12px; border-radius: 8px; text-decoration: none; display: block; margin-bottom: 10px; font-weight: bold; }
-
-        .footer { text-align: center; padding: 40px 20px; background: #111827; margin-top: 50px; border-top: 1px solid #1f2937; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .btn { background: #25d366; color: white; padding: 10px; border-radius: 6px; text-decoration: none; display: block; margin-top: 10px; font-weight: bold; }
+        .footer { text-align: center; padding: 20px; font-size: 11px; opacity: 0.6; }
     </style>
 </head>
 <body>
 
 <div class="hero">
-    <h1>ABID COMPUTERS</h1>
-    <p><i class="fas fa-code"></i> YOUR TRUSTED IT PARTNER</p>
+    <h1 style="margin:0; font-size: 2rem; text-shadow: 0 0 15px var(--neon);">ABID COMPUTERS</h1>
+    <p style="color:var(--neon); margin:5px 0;">Your Trusted IT Partner</p>
 </div>
 
 <div class="container">
     <div class="grid">
-        <div class="card" onclick="openS('s1')"><i class="fas fa-id-card"></i><span>Lost ID</span></div>
-        <div class="card" onclick="openS('s2')"><i class="fas fa-users-rectangle"></i><span>FRC Online</span></div>
-        <div id="s1" class="details">ID Card gum honay ki online report aur naya banwanay mein mukammal madad.<a href="https://wa.me/923324952550" class="btn-wa">SEND WHATSAPP</a></div>
-        <div id="s2" class="details">Family Registration Certificate (FRC) online apply karne ki sahoot.<a href="https://wa.me/923324952550" class="btn-wa">SEND WHATSAPP</a></div>
+        <div class="card" onclick="toggle('s1')"><i class="fas fa-id-card"></i><span>Lost ID</span></div>
+        <div class="card" onclick="toggle('s2')"><i class="fas fa-users"></i><span>FRC Online</span></div>
+        <div id="s1" class="details">Lost ID report aur duplication service.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
+        <div id="s2" class="details">Family Registration Certificate online.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
 
-        <div class="card" onclick="openS('s3')"><i class="fas fa-heart"></i><span>Shadi Card</span></div>
-        <div class="card" onclick="openS('s4')"><i class="fas fa-microchip"></i><span>Hardware</span></div>
-        <div id="s3" class="details">
-            Kamaal ke Wedding Cards aur Invitation Designs.
-            <a href="shadi-cards/shadi-cards.pdf" target="_blank" class="btn-pdf">VIEW CATALOG (PDF)</a>
-            <a href="https://wa.me/923324952550" class="btn-wa">ORDER ON WHATSAPP</a>
-        </div>
-        <div id="s4" class="details">Laptop/PC Motherboard Repairing, SSD Upgrades aur Hardware troubleshooting.<a href="https://wa.me/923324952550" class="btn-wa">CHAT WITH EXPERT</a></div>
+        <div class="card" onclick="toggle('s3')"><i class="fas fa-heart"></i><span>Shadi Card</span></div>
+        <div class="card" onclick="toggle('s4')"><i class="fas fa-tools"></i><span>Hardware</span></div>
+        <div id="s3" class="details">Premium Shadi Card Designing.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
+        <div id="s4" class="details">Computer & Laptop Repairing.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
 
-        <div class="card" onclick="openS('s5')"><i class="fas fa-file-invoice-dollar"></i><span>Bill Pay</span></div>
-        <div class="card" onclick="openS('s6')"><i class="fas fa-motorcycle"></i><span>Vehicle Info</span></div>
-        <div id="s5" class="details">Bijli, Gas, Pani aur Internet ke bills online pay karwayein.<a href="https://wa.me/923324952550" class="btn-wa">SEND BILL PHOTO</a></div>
-        <div id="s6" class="details">Car aur Bike ki online verification aur registration details.<a href="https://wa.me/923324952550" class="btn-wa">CHECK NOW</a></div>
+        <div class="card" onclick="toggle('s5')"><i class="fas fa-bolt"></i><span>Bill Pay</span></div>
+        <div class="card" onclick="toggle('s6')"><i class="fas fa-car"></i><span>Vehicle Info</span></div>
+        <div id="s5" class="details">Utility Bills Payment Service.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
+        <div id="s6" class="details">Vehicle Registration Verification.<a href="https://wa.me/923324952550" class="btn">WhatsApp</a></div>
+    </div>
+</div>
 
-        <div class="card" onclick="openS('s7')"><i class="fas fa-user-tie"></i><span>CV Maker</span></div>
-        <div class="card" onclick="openS('s8')"><i class="fas fa-passport"></i><span>Passport</span></div>
-        <div id="s7" class="details">Professional Resume aur CV designing for jobs.<a href="https://wa.me/923324952550" class="btn-wa">MAKE MY CV</a></div>
-        <div id="s8" class="details">Passport Fee payment aur appointment scheduling.<a href="https://wa.me/923324952550" class="btn-wa">BOOK APPOINTMENT</a></div>
+<div class="footer">
+    Opposite National Bank Mamu Kanjan | 03324952550
+</div>
 
-        <div class="card" onclick="openS('s
+<script>
+    function toggle(id) {
+        document.querySelectorAll('.details').forEach(d => { if(d.id !== id) d.classList.remove('active'); });
+        document.getElementById(id).classList.toggle('active');
+    }
+</script>
+
+</body>
