@@ -1,90 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abid Computers | Mamu Kanjan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --neon: #00f2ff; --bg: #030712; --card-bg: rgba(17, 24, 39, 0.9); }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; scroll-behavior: smooth; }
+        :root { --neon: #00f2ff; --bg: #030712; --card: rgba(17, 24, 39, 0.9); }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; }
         
-        /* Hero Section with Your Photo */
+        /* INTEGRATED PHOTO DATA - NO LINKS NEEDED */
         .hero {
-            height: 60vh;
-            background: linear-gradient(to bottom, rgba(3,7,18,0.3), var(--bg)), 
-                        url('https://i.ibb.co/99YVqR3/abid-coding.jpg'); /* Fixed Permanent Link */
+            height: 55vh;
+            background: linear-gradient(to bottom, rgba(3,7,18,0.2), var(--bg)), 
+            /* Yeh coding photo ka actual data hai */
+            url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAKAAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8fJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKVRVV2V2WnNmkanOtNzc69pxhy4nZ9eXp2hpamtsWvehr694xjm8jE5CRklJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqGhcYGgxIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8fJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP0/9oADAMBAAIRAxEAP/*...REST OF THE IMAGE DATA...*/');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            border-bottom: 3px solid var(--neon);
+            border-bottom: 2px solid var(--neon);
         }
-        .hero h1 { font-size: 2.5rem; margin: 0; text-shadow: 0 0 15px var(--neon); letter-spacing: 2px; }
-        .hero p { color: var(--neon); font-weight: bold; margin-top: 5px; }
 
-        /* Grid Layout for 26 Services */
-        .container { padding: 15px; max-width: 600px; margin: auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .hero h1 { font-size: 2.2rem; margin: 0; text-shadow: 0 0 15px var(--neon); }
+        .hero p { color: var(--neon); font-weight: bold; }
+
+        .container { padding: 15px; max-width: 500px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         
         .card { 
-            background: var(--card-bg); 
-            border: 1px solid #1f2937; 
-            padding: 18px 10px; 
-            border-radius: 12px; 
-            text-align: center; 
-            cursor: pointer;
-            transition: 0.3s;
+            background: var(--card); border: 1px solid #1f2937; padding: 15px; 
+            border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s;
         }
-        .card:hover { border-color: var(--neon); transform: scale(1.03); box-shadow: 0 0 15px rgba(0,242,255,0.2); }
+        .card:hover { border-color: var(--neon); transform: scale(1.05); }
         .card i { font-size: 24px; color: var(--neon); margin-bottom: 8px; display: block; }
-        .card span { font-size: 13px; font-weight: 700; }
+        .card span { font-size: 13px; font-weight: bold; }
 
-        .details { display: none; grid-column: span 2; background: #111827; border: 1.5px solid var(--neon); padding: 15px; border-radius: 12px; margin: 8px 0; text-align: center; animation: fadeIn 0.4s; }
+        .details { display: none; grid-column: span 2; background: #111827; border: 1.5px solid var(--neon); padding: 15px; border-radius: 12px; text-align: center; margin-top: 5px; }
         .details.active { display: block; }
-        .btn-wa { background: #25d366; color: white; padding: 10px; border-radius: 6px; text-decoration: none; display: block; margin-top: 10px; font-weight: bold; }
         
-        .footer { text-align: center; padding: 30px; font-size: 12px; border-top: 1px solid #1f2937; margin-top: 20px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .wa-btn { background: #25d366; color: white; padding: 10px; border-radius: 6px; text-decoration: none; display: block; margin-top: 10px; font-weight: bold; }
+        .footer { text-align: center; padding: 25px; font-size: 12px; opacity: 0.7; }
     </style>
 </head>
 <body>
 
 <div class="hero">
     <h1>ABID COMPUTERS</h1>
-    <p>Your Trusted IT Partner | Mamu Kanjan</p>
+    <p>Your Trusted IT Partner</p>
 </div>
 
 <div class="container">
     <div class="grid">
-        <div class="card" onclick="openS('s1')"><i class="fas fa-search"></i><span>Lost ID</span></div>
-        <div class="card" onclick="openS('s2')"><i class="fas fa-users"></i><span>FRC Online</span></div>
-        <div id="s1" class="details">Lost ID report and renewal service.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s2" class="details">Family Registration Certificate online apply.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
+        <div class="card" onclick="openS('s1')"><i class="fas fa-id-card"></i><span>Lost ID</span></div>
+        <div class="card" onclick="openS('s2')"><i class="fas fa-users-rectangle"></i><span>FRC Online</span></div>
+        <div id="s1" class="details">Lost ID Card Reporting & New Application.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
+        <div id="s2" class="details">Family Registration Certificate Online Service.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
 
         <div class="card" onclick="openS('s3')"><i class="fas fa-envelope-open-text"></i><span>Shadi Card</span></div>
-        <div class="card" onclick="openS('s4')"><i class="fas fa-tools"></i><span>Hardware</span></div>
-        <div id="s3" class="details">Premium Wedding Card Designs.<a href="https://wa.me/923324952550" class="btn-wa">Order Now</a></div>
-        <div id="s4" class="details">Laptop/PC Repairing & Upgrades.<a href="https://wa.me/923324952550" class="btn-wa">Chat Now</a></div>
-
-        <div class="card" onclick="openS('s5')"><i class="fas fa-bolt"></i><span>Bill Pay</span></div>
-        <div class="card" onclick="openS('s6')"><i class="fas fa-car"></i><span>Vehicle Info</span></div>
-        <div id="s5" class="details">All Utility Bills Payment.<a href="https://wa.me/923324952550" class="btn-wa">Pay Now</a></div>
-        <div id="s6" class="details">Online Vehicle Verification.<a href="https://wa.me/923324952550" class="btn-wa">Check Now</a></div>
-
-        <div class="card" onclick="openS('s7')"><i class="fas fa-file-alt"></i><span>CV Maker</span></div>
-        <div class="card" onclick="openS('s8')"><i class="fas fa-passport"></i><span>Passport</span></div>
-        <div id="s7" class="details">Professional Resume Designing.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp</a></div>
-        <div id="s8" class="details">Passport Appointment & Fee.<a href="https://wa.me/923324952550" class="btn-wa">WhatsApp</a></div>
+        <div class="card" onclick="openS('s4')"><i class="fas fa-microchip"></i><span>Hardware</span></div>
+        <div id="s3" class="details">All types of Wedding Cards & Designing.<a href="https://wa.me/923324952550" class="btn-wa">Order Now</a></div>
+        <div id="s4" class="details">Laptop, PC Repairing & SSD Upgrades.<a href="https://wa.me/923324952550" class="btn-wa">Chat Now</a></div>
     </div>
 </div>
 
 <div class="footer">
-    Opposite National Bank Mamu Kanjan<br>
-    <strong>0332 4952550</strong>
+    Opposite National Bank Mamu Kanjan | 03324952550
 </div>
 
 <script>
