@@ -1,93 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abid Computers | Premium IT Solutions</title>
+    <title>Abid Computers | 26+ Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg: #0b0f19; --card: #161b2c; --accent: #3b82f6; --text: #f8fafc; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; scroll-behavior: smooth; }
+        :root { --main-bg: #0f172a; --card-bg: #ffffff; --primary: #1e3a8a; --accent: #25d366; }
+        body { font-family: sans-serif; background: var(--main-bg); margin: 0; padding: 20px; color: #333; direction: ltr; }
+        .dashboard { max-width: 500px; margin: auto; background: var(--card-bg); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #3b82f6; }
+        .header { background: var(--primary); color: white; padding: 15px; text-align: center; font-weight: bold; font-size: 22px; border-bottom: 4px solid #ffd700; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
+        .item { border: 1px solid #cbd5e1; padding: 12px 5px; border-radius: 8px; text-align: center; cursor: pointer; transition: 0.2s; font-size: 13px; font-weight: 600; background: #f8fafc; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .item:hover { background: #eff6ff; border-color: var(--primary); transform: scale(1.02); }
+        .item i { margin-bottom: 5px; color: #1e40af; font-size: 18px; }
         
-        /* Header & Search */
-        header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--accent); }
-        .search-box { margin-top: 30px; position: relative; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .search-box input { width: 80%; padding: 15px 25px; border-radius: 50px; border: none; background: var(--card); color: white; border: 1px solid #334155; }
-
-        /* Dashboard Layout */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .category-title { border-left: 4px solid var(--accent); padding-left: 15px; margin: 40px 0 20px; font-size: 22px; color: var(--accent); text-transform: uppercase; }
+        .details { display: none; grid-column: span 2; background: #fffde7; padding: 15px; border-radius: 8px; border: 1px solid #ffd54f; margin-top: 5px; text-align: center; }
+        .details.active { display: block; animation: fadeIn 0.3s; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .btn-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .wa-btn { background: var(--accent); color: white; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .pdf-btn { background: #ef4444; color: white; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 14px; }
         
-        .service-card { background: var(--card); border-radius: 15px; padding: 25px; border: 1px solid #2d3748; transition: 0.3s; position: relative; overflow: hidden; }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); }
-        .service-card i { font-size: 30px; color: var(--accent); margin-bottom: 15px; }
-        .service-card h3 { margin: 10px 0; font-size: 18px; }
-        .service-card p { font-size: 14px; color: #94a3b8; line-height: 1.6; display: none; } /* Initially hidden */
-        .service-card.active p { display: block; } /* Show on click */
-
-        /* Floating Contact */
-        .contact-bar { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; }
-        .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; }
+        .footer { background: #f1f5f9; padding: 15px; text-align: center; font-size: 12px; color: #1e3a8a; font-weight: bold; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>ABID COMPUTERS</h1>
-    <p style="color: #94a3b8;">Premium Multi-Service IT Dashboard | Mamu Kanjan</p>
-    <div class="search-box">
-        <input type="text" placeholder="Search 26+ Services..." onkeyup="filterServices(this.value)">
-    </div>
-</header>
-
-<div class="container">
-    <div class="category-title">Hardware & Repairing</div>
+<div class="dashboard">
+    <div class="header">26+ SERVICES</div>
+    
     <div class="grid">
-        <div class="service-card" onclick="this.classList.toggle('active')">
-            <i class="fas fa-laptop"></i>
-            <h3>Laptop Chip Level Repair</h3>
-            <p>Master repair for all brands including Dell, HP, Lenovo. Motherboard repairing, screen replacement, and hinge fix.</p>
-        </div>
-        <div class="service-card" onclick="this.classList.toggle('active')">
-            <i class="fas fa-microchip"></i>
-            <h3>Desktop Optimization</h3>
-            <p>System speed-up, hardware cleaning, and professional thermal pasting for better performance.</p>
-        </div>
-        <div class="service-card" onclick="this.classList.toggle('active')">
-            <i class="fas fa-hdd"></i>
-            <h3>SSD/RAM Upgrades</h3>
-            <p>Boost your old laptop speed by 10x with our premium SSD and RAM installation services.</p>
-        </div>
-    </div>
+        <div class="item" onclick="toggle('s1')"><i class="fas fa-search"></i> Lost ID</div>
+        <div id="s1" class="details"><p>ID Card gum honay ki surat mein rabta karein.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
 
-    <div class="category-title">Software & Solutions</div>
-    <div class="grid">
-        <div class="service-card" onclick="this.classList.toggle('active')">
-            <i class="fab fa-windows"></i>
-            <h3>OS Installation</h3>
-            <p>Professional Windows 10/11 setup with all necessary drivers and security patches.</p>
-        </div>
-        <div class="service-card" onclick="this.classList.toggle('active')">
-            <i class="fas fa-file-invoice"></i>
-            <h3>Custom Excel Dashboards</h3>
-            <p>Automated invoice systems and business management sheets tailored for your shop.</p>
-        </div>
-    </div>
-</div>
+        <div class="item" onclick="toggle('s2')"><i class="fas fa-users"></i> FRC Online</div>
+        <div id="s2" class="details"><p>Family Registration Certificate Online Apply.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
 
-<div class="contact-bar">
-    <a href="https://wa.me/923000000000" class="float-btn" style="background: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        <div class="item" onclick="toggle('s3')"><i class="fas fa-envelope-open-text"></i> Shadi Card</div>
+        <div id="s3" class="details">
+            <p>Hamare Shadi Cards ka naya catalog dekhein.</p>
+            <div class="btn-group">
+                <a href="shadi-cards.pdf" target="_blank" class="pdf-btn"><i class="fas fa-file-pdf"></i> VIEW PDF CATALOG</a>
+                <a href="https://wa.me/923324952550" class="wa-btn">ORDER ON WHATSAPP</a>
+            </div>
+        </div>
+
+        <div class="item" onclick="toggle('s4')"><i class="fas fa-tools"></i> Hardware</div>
+        <div id="s4" class="details"><p>Laptop/PC Repairing & Parts.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s5')"><i class="fas fa-magic"></i> AI Photo</div>
+        <div id="s5" class="details"><p>Professional AI Photo Editing.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s6')"><i class="fas fa-graduation-cap"></i> IT Diploma</div>
+        <div id="s6" class="details"><p>All types of Computer Courses & Diplomas.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s7')"><i class="fas fa-bolt"></i> Bill Pay</div>
+        <div id="s7" class="details"><p>Bijli, Gas, Water Bills Payment.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s8')"><i class="fas fa-car"></i> Vehicle Info</div>
+        <div id="s8" class="details"><p>Check Vehicle Registration Online.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s9')"><i class="fas fa-file-alt"></i> CV Maker</div>
+        <div id="s9" class="details"><p>Professional CV/Resume Designing.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s10')"><i class="fas fa-passport"></i> Passport</div>
+        <div id="s10" class="details"><p>Passport Online Fee & Appointment.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s11')"><i class="fas fa-home"></i> Domicile</div>
+        <div id="s11" class="details"><p>New Domicile Application Services.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+
+        <div class="item" onclick="toggle('s12')"><i class="fas fa-sim-card"></i> SIM Detail</div>
+        <div id="s12" class="details"><p>Check SIM Ownership & Details.</p><a href="https://wa.me/923324952550" class="wa-btn">SEND WHATSAPP</a></div>
+        
+        </div>
+
+    <div class="footer">
+        Opposite National Bank Mamu Kanjan<br>
+        03324952550
+    </div>
 </div>
 
 <script>
-    function filterServices(val) {
-        let cards = document.querySelectorAll('.service-card');
-        cards.forEach(card => {
-            let title = card.querySelector('h3').innerText.toLowerCase();
-            card.style.display = title.includes(val.toLowerCase()) ? 'block' : 'none';
-        });
+    function toggle(id) {
+        let target = document.getElementById(id);
+        let isActive = target.classList.contains('active');
+        document.querySelectorAll('.details').forEach(el => el.classList.remove('active'));
+        if(!isActive) target.classList.add('active');
     }
 </script>
 
