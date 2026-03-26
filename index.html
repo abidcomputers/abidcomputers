@@ -7,55 +7,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --neon: #00f2ff; --bg: #020617; --card: #1e293b; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
         
-        /* Header Section */
+        /* --- ELEGANT BRANDED HEADER --- */
         .header { 
-            background: linear-gradient(to bottom, #0f172a, var(--bg)); 
-            padding: 40px 20px; text-align: center; border-bottom: 2px solid var(--neon);
+            height: 60vh;
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; border-bottom: 2px solid var(--neon);
         }
-        .header h1 { font-size: 2.5rem; margin: 0; text-shadow: 0 0 15px var(--neon); letter-spacing: 2px; }
-        .header p { color: var(--neon); font-weight: bold; margin-top: 10px; opacity: 0.8; }
 
-        /* Grid System */
-        .container { padding: 20px; max-width: 1200px; margin: auto; }
+        .brand-name {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 8px;
+            margin: 0;
+            text-shadow: 0 0 15px var(--neon), 0 0 30px rgba(0,242,255,0.3);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--neon);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* --- GRID SYSTEM --- */
+        .container { padding: 40px 20px; max-width: 1300px; margin: auto; }
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); 
             gap: 12px; 
         }
 
-        /* Service Cards */
         .card { 
-            background: var(--card); border: 1px solid #334155; padding: 15px 5px; 
-            border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s;
+            background: rgba(30, 41, 59, 0.6); 
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.05); 
+            padding: 20px 5px; border-radius: 12px; 
+            text-align: center; cursor: pointer; transition: 0.3s;
         }
-        .card:hover { border-color: var(--neon); transform: scale(1.05); background: #334155; }
-        .card i { font-size: 22px; color: var(--neon); margin-bottom: 8px; display: block; }
-        .card span { font-size: 12px; font-weight: 600; display: block; }
+        .card:hover { 
+            border-color: var(--neon); transform: translateY(-5px);
+            background: rgba(0, 242, 255, 0.1);
+        }
+        .card i { font-size: 24px; color: var(--neon); margin-bottom: 10px; display: block; }
+        .card span { font-size: 12px; font-weight: 600; text-transform: uppercase; }
 
-        /* Detail Box */
+        /* --- DETAIL POPUP --- */
         .details { 
             display: none; grid-column: 1 / -1; background: #0f172a; 
-            border: 2px solid var(--neon); padding: 20px; border-radius: 15px; 
-            text-align: center; margin: 10px 0; animation: fadeIn 0.3s;
+            border: 1.5px solid var(--neon); padding: 25px; border-radius: 15px; 
+            text-align: center; margin: 10px 0; animation: fadeIn 0.4s;
         }
         .details.active { display: block; }
         .wa-btn { 
-            background: #25d366; color: white; padding: 10px 25px; 
-            border-radius: 8px; text-decoration: none; display: inline-block; 
-            margin-top: 10px; font-weight: bold; 
+            background: #25d366; color: white; padding: 10px 30px; 
+            border-radius: 50px; text-decoration: none; display: inline-block; 
+            margin-top: 15px; font-weight: bold; 
         }
 
-        .footer { text-align: center; padding: 30px; font-size: 12px; opacity: 0.6; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.8; }
+        }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .footer { text-align: center; padding: 50px; opacity: 0.5; border-top: 1px solid #1e293b; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>ABID COMPUTERS</h1>
-    <p>PROFESSIONAL DIGITAL SERVICES HUB</p>
+    <h1 class="brand-name">ABID</h1>
+    <h1 class="brand-name" style="font-size: clamp(2rem, 6vw, 3.5rem); margin-top: -10px;">COMPUTERS</h1>
+    <p class="tagline">50+ Premium Digital Services</p>
 </div>
 
 <div class="container">
@@ -68,7 +100,6 @@
 </div>
 
 <script>
-    // List of 50+ Services
     const services = [
         { n: "Lost ID Card", i: "fa-id-card", d: "Online reporting and new ID card application." },
         { n: "FRC Online", i: "fa-users", d: "NADRA Family Registration Certificate." },
@@ -116,37 +147,4 @@
         { n: "Zakat Form", i: "fa-mosque", d: "Zakat Affidavit & Form CZ-08." },
         { n: "Stamp Paper", i: "fa-stamp", d: "E-Stamp Paper & Agreement Services." },
         { n: "Affidavit", i: "fa-gavel", d: "Legal Affidavit & Bayan-e-Halfi." },
-        { n: "Scholarship", i: "fa-award", d: "HEC & Overseas Scholarship Apply." },
-        { n: "Domain/Host", i: "fa-server", d: "Website Hosting & Domain Booking." },
-        { n: "SEO Service", i: "fa-magnifying-glass", d: "Google Search Ranking Services." },
-        { n: "App Repair", i: "fa-mobile-screen", d: "Mobile Software & App Fixes." },
-        { n: "Cyber Cafe", i: "fa-wifi", d: "High Speed Browsing & Downloads." }
-    ];
-
-    const grid = document.getElementById('serviceGrid');
-    services.forEach((s, index) => {
-        // Create Card
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.onclick = () => toggleS(`det${index}`);
-        card.innerHTML = `<i class="fas ${s.i}"></i><span>${s.n}</span>`;
-        
-        // Create Detail Box
-        const det = document.createElement('div');
-        det.id = `det${index}`;
-        det.className = 'details';
-        det.innerHTML = `<strong>${s.n}</strong><p>${s.d}</p><a href="https://wa.me/923324952550" class="wa-btn">WhatsApp Now</a>`;
-        
-        grid.appendChild(card);
-        grid.appendChild(det);
-    });
-
-    function toggleS(id) {
-        const target = document.getElementById(id);
-        const active = target.classList.contains('active');
-        document.querySelectorAll('.details').forEach(d => d.classList.remove('active'));
-        if(!active) target.classList.add('active');
-    }
-</script>
-</body>
-</html>
+        { n: "Scholarship",
