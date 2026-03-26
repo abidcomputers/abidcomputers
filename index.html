@@ -3,102 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abid Computers | Mamu Kanjan</title>
+    <title>Abid Computers | 50+ Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --neon: #00f2ff; --bg: #030712; --card-bg: rgba(17, 24, 39, 0.9); }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.1; }
-
-        /* --- Professional Website Header --- */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(135deg, rgba(3,7,18,0.9) 0%, rgba(10,20,40,0.6) 100%);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; border-bottom: 3px solid var(--neon);
-        }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); text-shadow: 0 0 20px var(--neon); margin: 0; letter-spacing: 3px; }
-        .hero p { color: var(--neon); font-weight: bold; font-size: 1.1rem; margin-top: 10px; }
-
-        /* --- Multi-Column Grid for 50+ Services --- */
-        .container { padding: 40px 15px; max-width: 1300px; margin: auto; }
-        .section-title { text-align: center; color: var(--neon); margin-bottom: 30px; font-size: 1.8rem; border-bottom: 1px solid #1f2937; padding-bottom: 10px; }
+        :root { --neon: #00f2ff; --bg: #020617; --card: #1e293b; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: white; }
         
+        /* Header Section */
+        .header { 
+            background: linear-gradient(to bottom, #0f172a, var(--bg)); 
+            padding: 40px 20px; text-align: center; border-bottom: 2px solid var(--neon);
+        }
+        .header h1 { font-size: 2.5rem; margin: 0; text-shadow: 0 0 15px var(--neon); letter-spacing: 2px; }
+        .header p { color: var(--neon); font-weight: bold; margin-top: 10px; opacity: 0.8; }
+
+        /* Grid System */
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
             gap: 12px; 
         }
-        
+
+        /* Service Cards */
         .card { 
-            background: var(--card-bg); border: 1px solid #1f2937; padding: 20px 10px; 
+            background: var(--card); border: 1px solid #334155; padding: 15px 5px; 
             border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s;
         }
-        .card:hover { border-color: var(--neon); transform: translateY(-5px); box-shadow: 0 0 15px rgba(0,242,255,0.2); }
-        .card i { font-size: 24px; color: var(--neon); margin-bottom: 10px; display: block; }
-        .card span { font-size: 13px; font-weight: 600; display: block; line-height: 1.2; }
+        .card:hover { border-color: var(--neon); transform: scale(1.05); background: #334155; }
+        .card i { font-size: 22px; color: var(--neon); margin-bottom: 8px; display: block; }
+        .card span { font-size: 12px; font-weight: 600; display: block; }
 
-        /* --- Detail Popup --- */
+        /* Detail Box */
         .details { 
             display: none; grid-column: 1 / -1; background: #0f172a; 
             border: 2px solid var(--neon); padding: 20px; border-radius: 15px; 
-            text-align: center; margin: 10px 0; animation: fadeIn 0.4s;
+            text-align: center; margin: 10px 0; animation: fadeIn 0.3s;
         }
         .details.active { display: block; }
-        .btn-wa { background: #25d366; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold; }
+        .wa-btn { 
+            background: #25d366; color: white; padding: 10px 25px; 
+            border-radius: 8px; text-decoration: none; display: inline-block; 
+            margin-top: 10px; font-weight: bold; 
+        }
 
-        .footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.8); border-top: 1px solid #1f2937; margin-top: 40px; }
+        .footer { text-align: center; padding: 30px; font-size: 12px; opacity: 0.6; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        @media (min-width: 1024px) { .grid { grid-template-columns: repeat(6, 1fr); } }
     </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-
-<div class="hero">
+<div class="header">
     <h1>ABID COMPUTERS</h1>
-    <p><i class="fas fa-check-circle"></i> ALL-IN-ONE DIGITAL SERVICES CENTER</p>
+    <p>PROFESSIONAL DIGITAL SERVICES HUB</p>
 </div>
 
 <div class="container">
-    <h2 class="section-title">Our Professional Services</h2>
-    <div class="grid">
-        <div class="card" onclick="openS('s1')"><i class="fas fa-id-card"></i><span>Lost ID Card</span></div>
-        <div class="card" onclick="openS('s2')"><i class="fas fa-users"></i><span>FRC Online</span></div>
-        <div class="card" onclick="openS('s3')"><i class="fas fa-file-contract"></i><span>Nikah Nama</span></div>
-        <div class="card" onclick="openS('s4')"><i class="fas fa-passport"></i><span>Passport Fee</span></div>
-        <div class="card" onclick="openS('s5')"><i class="fas fa-file-signature"></i><span>Domicile</span></div>
-        <div class="card" onclick="openS('s6')"><i class="fas fa-user-shield"></i><span>Character Cert</span></div>
+    <div class="grid" id="serviceGrid">
+        </div>
+</div>
 
-        <div id="s1" class="details">ID Card reporting and duplication services.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s2" class="details">Apply Family Registration Certificate online.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s3" class="details">NADRA Computerized Nikah Nama services.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s4" class="details">Passport Fee payment & appointment booking.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s5" class="details">Punjab Domicile online application.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s6" class="details">Police Character Certificate processing.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
+<div class="footer">
+    Opposite National Bank Mamu Kanjan | 0332-4952550
+</div>
 
-        <div class="card" onclick="openS('s7')"><i class="fas fa-laptop-code"></i><span>Web Design</span></div>
-        <div class="card" onclick="openS('s8')"><i class="fas fa-microchip"></i><span>PC Repair</span></div>
-        <div class="card" onclick="openS('s9')"><i class="fas fa-window-restore"></i><span>Windows Inst.</span></div>
-        <div class="card" onclick="openS('s10')"><i class="fas fa-database"></i><span>SSD Upgrade</span></div>
-        <div class="card" onclick="openS('s11')"><i class="fas fa-print"></i><span>Color Prints</span></div>
-        <div class="card" onclick="openS('s12')"><i class="fas fa-graduation-cap"></i><span>IT Diploma</span></div>
+<script>
+    // List of 50+ Services
+    const services = [
+        { n: "Lost ID Card", i: "fa-id-card", d: "Online reporting and new ID card application." },
+        { n: "FRC Online", i: "fa-users", d: "NADRA Family Registration Certificate." },
+        { n: "Shadi Card", i: "fa-heart", d: "Custom Wedding Card Designing & Printing." },
+        { n: "PC Repair", i: "fa-microchip", d: "Complete Hardware & Software Troubleshooting." },
+        { n: "Bill Payment", i: "fa-bolt", d: "Electricity, Gas, and Water Bill payments." },
+        { n: "Vehicle Info", i: "fa-car", d: "Online Verification & Token Tax Check." },
+        { n: "CV Maker", i: "fa-file-pdf", d: "Professional Resume for Jobs & Visas." },
+        { n: "Passport Fee", i: "fa-passport", d: "Passport Fee submission & Appointment." },
+        { n: "Domicile", i: "fa-file-signature", d: "Punjab Domicile Online Apply." },
+        { n: "SIM Detail", i: "fa-sim-card", d: "SIM Information & Ownership Check." },
+        { n: "IT Diploma", i: "fa-graduation-cap", d: "Short Courses & IT Certificates." },
+        { n: "AI Photo", i: "fa-camera", d: "Professional AI Image Editing & Upscaling." },
+        { n: "Nikah Nama", i: "fa-file-contract", d: "Computerized NADRA Nikah Nama." },
+        { n: "FBR Filing", i: "fa-building-columns", d: "Tax Returns & NTN Registration." },
+        { n: "Character Cert", i: "fa-user-shield", d: "Police Character Certificate apply." },
+        { n: "SSD Upgrade", i: "fa-database", d: "Laptops & PC Speed Optimization." },
+        { n: "Windows Inst.", i: "fa-window-restore", d: "Genuine Windows 10/11 Installation." },
+        { n: "Color Prints", i: "fa-print", d: "High Quality Document & Photo Printing." },
+        { n: "CCTV Setup", i: "fa-video", d: "Security Camera Installation & Repair." },
+        { n: "Web Design", i: "fa-code", d: "Business Websites & Landing Pages." },
+        { n: "Logo Design", i: "fa-pen-nib", d: "Professional Branding & Logos." },
+        { n: "Social Ads", i: "fa-bullhorn", d: "Facebook & Instagram Marketing." },
+        { n: "Income Cert", i: "fa-money-bill-wave", d: "Authorized Income Certificate." },
+        { n: "Birth Cert", i: "fa-child", d: "Computerized Birth Certificates." },
+        { n: "Death Cert", i: "fa-skull", d: "Official Death Registration Services." },
+        { n: "Marriage Cert", i: "fa-rings-wedding", d: "Marriage Registration Certificate." },
+        { n: "Visa Apply", i: "fa-plane", d: "E-Visa & Online Visa Applications." },
+        { n: "University App", i: "fa-school", d: "Admissions & Form Submission." },
+        { n: "BISP Check", i: "fa-hand-holding-heart", d: "Benazir Income Support Program Info." },
+        { n: "E-Sahulat", i: "fa-wallet", d: "NADRA E-Sahulat Transactions." },
+        { n: "Lesco Bill", i: "fa-lightbulb", d: "Electricity Bill Issue Resolution." },
+        { n: "Gass Bill", i: "fa-fire", d: "SNGPL New Connection & Bills." },
+        { n: "Data Recovery", i: "fa-trash-arrow-up", d: "Deleted File & HDD Recovery." },
+        { n: "Graphic Design", i: "fa-palette", d: "Posters, Banners & Flex Design." },
+        { n: "Business Card", i: "fa-address-card", d: "Premium Visiting Card Designs." },
+        { n: "E-Commerce", i: "fa-cart-shopping", d: "Online Store Setup (Shopify/Woo)." },
+        { n: "Translation", i: "fa-language", d: "English to Urdu Document Translation." },
+        { n: "Typing Service", i: "fa-keyboard", d: "Urdu & English Speed Typing." },
+        { n: "Result Check", i: "fa-book-open", d: "All Boards Exam Result Online." },
+        { n: "Roll No Slip", i: "fa-file-lines", d: "Download Exam Roll Number Slips." },
+        { n: "Challan Pay", i: "fa-receipt", d: "Traffic & Govt Challan Payments." },
+        { n: "Driving License", i: "fa-id-badge", d: "Learner & Permanent License Apply." },
+        { n: "Pension Info", i: "fa-person-cane", d: "Govt Pension Registration & Check." },
+        { n: "Zakat Form", i: "fa-mosque", d: "Zakat Affidavit & Form CZ-08." },
+        { n: "Stamp Paper", i: "fa-stamp", d: "E-Stamp Paper & Agreement Services." },
+        { n: "Affidavit", i: "fa-gavel", d: "Legal Affidavit & Bayan-e-Halfi." },
+        { n: "Scholarship", i: "fa-award", d: "HEC & Overseas Scholarship Apply." },
+        { n: "Domain/Host", i: "fa-server", d: "Website Hosting & Domain Booking." },
+        { n: "SEO Service", i: "fa-magnifying-glass", d: "Google Search Ranking Services." },
+        { n: "App Repair", i: "fa-mobile-screen", d: "Mobile Software & App Fixes." },
+        { n: "Cyber Cafe", i: "fa-wifi", d: "High Speed Browsing & Downloads." }
+    ];
 
-        <div id="s7" class="details">Professional Website & Portfolio creation.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s8" class="details">Complete Laptop & Desktop Hardware Repair.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s9" class="details">Genuine Windows & Software Installation.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s10" class="details">Slow PC? Upgrade to High-Speed SSD.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s11" class="details">HD Photo Prints & Document Printing.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s12" class="details">Short Courses & Professional IT Diplomas.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
+    const grid = document.getElementById('serviceGrid');
+    services.forEach((s, index) => {
+        // Create Card
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => toggleS(`det${index}`);
+        card.innerHTML = `<i class="fas ${s.i}"></i><span>${s.n}</span>`;
+        
+        // Create Detail Box
+        const det = document.createElement('div');
+        det.id = `det${index}`;
+        det.className = 'details';
+        det.innerHTML = `<strong>${s.n}</strong><p>${s.d}</p><a href="https://wa.me/923324952550" class="wa-btn">WhatsApp Now</a>`;
+        
+        grid.appendChild(card);
+        grid.appendChild(det);
+    });
 
-        <div class="card" onclick="openS('s13')"><i class="fas fa-bolt"></i><span>Bill Payment</span></div>
-        <div class="card" onclick="openS('s14')"><i class="fas fa-car"></i><span>Vehicle Info</span></div>
-        <div class="card" onclick="openS('s15')"><i class="fas fa-building-columns"></i><span>FBR Filing</span></div>
-        <div class="card" onclick="openS('s16')"><i class="fas fa-money-check-dollar"></i><span>Token Tax</span></div>
-        <div class="card" onclick="openS('s17')"><i class="fas fa-briefcase"></i><span>CV/Resume</span></div>
-        <div class="card" onclick="openS('s18')"><i class="fas fa-envelope-open-text"></i><span>Shadi Card</span></div>
-
-        <div id="s13" class="details">Pay Electricity, Gas, Water bills online.<br><a href="https://wa.me/923324952550" class="btn-wa">WhatsApp Now</a></div>
-        <div id="s14" class="details">Online Vehicle Verification (All Pakistan).<br><a href="
+    function toggleS(id) {
+        const target = document.getElementById(id);
+        const active = target.classList.contains('active');
+        document.querySelectorAll('.details').forEach(d => d.classList.remove('active'));
+        if(!active) target.classList.add('active');
+    }
+</script>
+</body>
+</html>
